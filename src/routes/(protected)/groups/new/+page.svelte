@@ -5,18 +5,23 @@
 	let { form }: PageProps = $props();
 </script>
 
-<h1>Create Group</h1>
+<div class="page">
+	<div class="page-header">
+		<h1>Create Group</h1>
+	</div>
 
-{#if form?.message}
-	<p>{form.message}</p>
-{/if}
+	{#if form?.message}
+		<p class="message error">{form.message}</p>
+	{/if}
 
-<form method="post" action="?/create" use:enhance>
-	<label>
-		Group name
-		<input type="text" name="name" required />
-	</label>
-	<button type="submit">Create</button>
-</form>
-
-<a href="/groups">Cancel</a>
+	<form method="post" action="?/create" use:enhance class="form-stack">
+		<label>
+			Group name
+			<input type="text" name="name" required />
+		</label>
+		<div class="form-actions">
+			<button type="submit" class="primary">Create</button>
+			<a href="/groups">Cancel</a>
+		</div>
+	</form>
+</div>

@@ -5,22 +5,26 @@
 	let { form }: PageProps = $props();
 </script>
 
-<h1>Sign in</h1>
+<div class="auth-wrapper">
+	<div class="auth-card">
+		<h1>Sign in</h1>
 
-{#if form?.message}
-	<p>{form.message}</p>
-{/if}
+		{#if form?.message}
+			<p class="message error">{form.message}</p>
+		{/if}
 
-<form method="post" action="?/signIn" use:enhance>
-	<label>
-		Email
-		<input type="email" name="email" required />
-	</label>
-	<label>
-		Password
-		<input type="password" name="password" required />
-	</label>
-	<button type="submit">Sign in</button>
-</form>
+		<form method="post" action="?/signIn" use:enhance>
+			<label>
+				Email
+				<input type="email" name="email" required />
+			</label>
+			<label>
+				Password
+				<input type="password" name="password" required />
+			</label>
+			<button type="submit" class="primary">Sign in</button>
+		</form>
 
-<p>No account? <a href="/register">Register</a></p>
+		<p>No account? <a href="/register">Register</a></p>
+	</div>
+</div>

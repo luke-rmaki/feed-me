@@ -103,9 +103,9 @@
 		top: 0;
 		bottom: 0;
 		width: 200px;
-		background: #f5f5f5;
-		border-right: 1px solid #ddd;
-		padding: 1rem;
+		background: var(--fg-05);
+		border-right: var(--border-1);
+		padding: var(--pad-l);
 		display: flex;
 		flex-direction: column;
 		transition: width 0.2s ease;
@@ -128,8 +128,16 @@
 		background: none;
 		border: none;
 		cursor: pointer;
-		padding: 0.5rem;
+		padding: var(--pad-s);
 		font-size: 1rem;
+		color: var(--fg-5);
+		border-radius: var(--br-s);
+		transition: color 0.15s;
+	}
+
+	.toggle-desktop:hover {
+		color: var(--fg);
+		background: var(--fg-1);
 	}
 
 	.sidebar.collapsed .toggle-desktop {
@@ -139,44 +147,65 @@
 	.desktop-nav {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 2px;
 	}
 
 	.desktop-nav a {
-		padding: 0.5rem;
+		padding: var(--pad-s) var(--pad-m);
 		text-decoration: none;
-		color: #333;
-		border-radius: 4px;
+		color: var(--fg-7);
+		border-radius: var(--br-m);
+		font-size: 0.9rem;
+		font-weight: 500;
+		transition:
+			background-color 0.15s,
+			color 0.15s;
 	}
 
 	.desktop-nav a:hover {
-		background: #e0e0e0;
+		background: var(--fg-1);
+		color: var(--fg);
+	}
+
+	:global(.desktop-nav a[aria-current='page']) {
+		background: var(--primary-1);
+		color: var(--primary);
 	}
 
 	.desktop-nav hr {
-		margin: 0.5rem 0;
+		margin: var(--vs-s) 0;
 		border: none;
-		border-top: 1px solid #ddd;
+		border-top: var(--border-1);
 	}
 
 	.group-name {
-		font-weight: bold;
-		padding: 0.5rem;
-		color: #666;
+		font-weight: 600;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding: var(--pad-s) var(--pad-m);
+		color: var(--fg-4);
 	}
 
 	.desktop-nav .sign-out {
 		background: none;
 		border: none;
 		cursor: pointer;
-		padding: 0.5rem;
+		padding: var(--pad-s) var(--pad-m);
 		text-align: left;
-		color: #333;
-		border-radius: 4px;
+		color: var(--fg-7);
+		border-radius: var(--br-m);
+		font-size: 0.9rem;
+		font-weight: 500;
+		width: 100%;
+		transition:
+			background-color 0.15s,
+			color 0.15s;
 	}
 
 	.desktop-nav .sign-out:hover {
-		background: #e0e0e0;
+		background: var(--fg-1);
+		color: var(--fg);
 	}
 
 	.fab {
@@ -187,13 +216,13 @@
 		width: 56px;
 		height: 56px;
 		border-radius: 50%;
-		background: #333;
-		color: white;
+		background: var(--fg-9);
+		color: var(--bg);
 		border: none;
 		cursor: pointer;
 		font-size: 1.5rem;
 		z-index: 200;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+		box-shadow: var(--shadow-4);
 	}
 
 	.mobile-overlay {
@@ -210,66 +239,90 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		background: white;
-		padding: 2rem;
-		border-radius: 8px;
+		background: var(--bg);
+		padding: var(--pad-xxl);
+		border-radius: var(--br-l);
 		z-index: 300;
-		min-width: 200px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+		min-width: 220px;
+		box-shadow: var(--shadow-6);
+		border: var(--border-1);
 	}
 
 	.mobile-menu .close-mobile {
 		position: absolute;
-		top: 0.5rem;
-		right: 0.5rem;
+		top: var(--pad-s);
+		right: var(--pad-s);
 		background: none;
 		border: none;
 		cursor: pointer;
 		font-size: 1.2rem;
-		padding: 0.5rem;
+		padding: var(--pad-s);
+		color: var(--fg-5);
+		border-radius: var(--br-s);
+	}
+
+	.mobile-menu .close-mobile:hover {
+		background: var(--fg-1);
+		color: var(--fg);
 	}
 
 	.mobile-menu nav {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: 2px;
 	}
 
 	.mobile-menu nav a {
-		padding: 0.75rem;
+		display: block;
+		padding: var(--pad-m);
 		text-decoration: none;
-		color: #333;
-		border-radius: 4px;
+		color: var(--fg-7);
+		border-radius: var(--br-m);
+		font-weight: 500;
+		transition:
+			background-color 0.15s,
+			color 0.15s;
 	}
 
 	.mobile-menu nav a:hover {
-		background: #f0f0f0;
+		background: var(--fg-05);
+		color: var(--fg);
+	}
+
+	:global(.mobile-menu nav a[aria-current='page']) {
+		background: var(--primary-1);
+		color: var(--primary);
 	}
 
 	.mobile-menu nav hr {
-		margin: 0.5rem 0;
+		margin: var(--vs-s) 0;
 		border: none;
-		border-top: 1px solid #ddd;
+		border-top: var(--border-1);
 	}
 
 	.mobile-menu .sign-out {
 		background: none;
 		border: none;
 		cursor: pointer;
-		padding: 0.75rem;
+		padding: var(--pad-m);
 		text-align: left;
-		color: #333;
-		border-radius: 4px;
+		color: var(--fg-7);
+		border-radius: var(--br-m);
 		font-size: 1rem;
+		font-weight: 500;
+		width: 100%;
+		transition:
+			background-color 0.15s,
+			color 0.15s;
 	}
 
 	.mobile-menu .sign-out:hover {
-		background: #f0f0f0;
+		background: var(--fg-05);
+		color: var(--fg);
 	}
 
 	.main-content {
 		margin-left: 200px;
-		padding: 1rem;
 		transition: margin-left 0.2s ease;
 		min-height: 100vh;
 	}

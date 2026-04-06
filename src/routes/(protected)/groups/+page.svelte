@@ -4,16 +4,21 @@
 	let { data }: PageProps = $props();
 </script>
 
-<h1>Groups</h1>
+<div class="page">
+	<div class="page-header">
+		<h1>Groups</h1>
+		<a href="/groups/new" class="button primary">New group</a>
+	</div>
 
-{#if data.groups.length === 0}
-	<p>You're not a member of any groups yet.</p>
-{:else}
-	<ul>
-		{#each data.groups as group}
-			<li><a href="/groups/{group.id}">{group.name}</a></li>
-		{/each}
-	</ul>
-{/if}
-
-<a href="/groups/new">Create new group</a>
+	{#if data.groups.length === 0}
+		<div class="empty-state">
+			<p>You're not a member of any groups yet.</p>
+		</div>
+	{:else}
+		<ul class="item-list">
+			{#each data.groups as group}
+				<li><a href="/groups/{group.id}">{group.name}</a></li>
+			{/each}
+		</ul>
+	{/if}
+</div>
